@@ -85,7 +85,7 @@ require (
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211
 	golang.org/x/text v0.3.7
 	golang.org/x/tools v0.1.9
-	gonum.org/v1/gonum v0.9.3
+	gonum.org/v1/gonum v0.9.1-0.20220304035653-09c7f513f8d8
 	google.golang.org/protobuf v1.27.1
 	gopkg.in/guregu/null.v4 v4.0.0
 )

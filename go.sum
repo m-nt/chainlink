@@ -2317,8 +2317,6 @@ github.com/smartcontractkit/chainlink v0.8.10-0.20200825114219-81dd2fc95bac/go.m
 github.com/smartcontractkit/chainlink v0.9.5-0.20201207211610-6c7fee37d5b7/go.mod h1:kmdLJbVZRCnBLiL6gG+U+1+0ofT3bB48DOF8tjQvcoI=
 github.com/smartcontractkit/chainlink-solana v0.2.12-0.20220217150457-281a05e940f1 h1:nrFnL9McbNpy+fmtPZixWGgqQoZnHyqiu5BDUuwiR40=
 github.com/smartcontractkit/chainlink-solana v0.2.12-0.20220217150457-281a05e940f1/go.mod h1:ptiyWN0cpK6ZsVmGyAqjJxG6fs5tgg0YYZL33sit1CA=
-github.com/smartcontractkit/chainlink-terra v0.1.2-0.20220303010347-93a6bab4acef h1:K3fL0e2kZm9gUEZ6FZpipZZ0m9zG4SWtJ6tyyzkNTJE=
-github.com/smartcontractkit/chainlink-terra v0.1.2-0.20220303010347-93a6bab4acef/go.mod h1:DSH3/HjQChWGZOxbUtLU23TlPofg77vcjCRoV5JXQtE=
 github.com/smartcontractkit/chainlink-terra v0.1.2-0.20220304190250-a9a6e963f91f h1:Ty/J2jB/7XFGdC0/ZcNIpg2Inra+8VZJGe0PCgyHCRk=
 github.com/smartcontractkit/chainlink-terra v0.1.2-0.20220304190250-a9a6e963f91f/go.mod h1:9ibTUl8dZbEc1nC2j3hflXvjZQEd1MGbejzfx1hLR50=
 github.com/smartcontractkit/helmenv v1.0.36 h1:RSgEyvWstAuH5BCssPeSeDrxywvAFHP8sqw2Ft55VaQ=
@@ -3220,10 +3218,9 @@ gonum.org/v1/gonum v0.0.0-20180816165407-929014505bf4/go.mod h1:Y+Yx5eoAFn32cQvJ
 gonum.org/v1/gonum v0.0.0-20181121035319-3f7ecaa7e8ca/go.mod h1:Y+Yx5eoAFn32cQvJDxZx5Dpnq+c3wtXuadVZAcxbbBo=
 gonum.org/v1/gonum v0.6.0/go.mod h1:9mxDZsDKxgMAuccQkewq682L+0eCu4dCN2yonUJTCLU=
 gonum.org/v1/gonum v0.8.2/go.mod h1:oe/vMfY3deqTw+1EZJhuvEW2iwGF1bW9wwu7XCu0+v0=
-gonum.org/v1/gonum v0.9.3 h1:DnoIG+QAMaF5NvxnGe/oKsgKcAc6PcUyl8q0VetfQ8s=
-gonum.org/v1/gonum v0.9.3/go.mod h1:TZumC3NeyVQskjXqmyWt4S3bINhy7B4eYwW69EbyX+0=
+gonum.org/v1/gonum v0.9.1-0.20220304035653-09c7f513f8d8 h1:wWBbF8z4AP6/66LA+Wi3iclZSnJZx44mMCwEMCja8LY=
+gonum.org/v1/gonum v0.9.1-0.20220304035653-09c7f513f8d8/go.mod h1:FrBK21JiVRZQ5jgtLAO+A4pdWZ3DL/n4drb9o6oJiuE=
 gonum.org/v1/netlib v0.0.0-20181029234149-ec6d1f5cefe6/go.mod h1:wa6Ws7BG/ESfp6dHfk7C6KdzKA7wR7u/rKwOGE66zvw=
-gonum.org/v1/netlib v0.0.0-20190313105609-8cb42192e0e0 h1:OE9mWmgKkjJyEmDAAtGMPjXu+YNeGvK9VTSHY6+Qihc=
 gonum.org/v1/netlib v0.0.0-20190313105609-8cb42192e0e0/go.mod h1:wa6Ws7BG/ESfp6dHfk7C6KdzKA7wR7u/rKwOGE66zvw=
 gonum.org/v1/plot v0.0.0-20190515093506-e2840ee46a6b/go.mod h1:Wt8AAjI+ypCyYX3nZBvf6cAIx93T+c/OS2HFAYskSZc=
 gonum.org/v1/plot v0.9.0/go.mod h1:3Pcqqmp6RHvJI72kgb8fThyUnav364FOsdDo2aGW5lY=
