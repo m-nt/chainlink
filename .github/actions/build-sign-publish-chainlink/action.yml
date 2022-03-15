@@ -187,7 +187,6 @@ runs:
     shell: sh
     run: |
       echo "Fail build if non-root image runs as user: root"
-      docker pull "${nonroot_image_name}"
       docker inspect "${nonroot_image_name}" | jq -r '.[].Config.User' | ( ! grep "root" )
 
   - if: inputs.sign-images == 'true'
