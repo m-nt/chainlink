@@ -57,6 +57,8 @@ runs:
   steps:
   - name: Set shared variables
     shell: sh
+    env:
+      PUBLISH: ${{ inputs.publish }}
     # See https://docs.github.com/en/actions/learn-github-actions/workflow-commands-for-github-actions#multiline-strings
     run: |
       SHARED_IMAGES=${{ inputs.ecr-registry }}/${{ inputs.image-name }}
@@ -73,7 +75,23 @@ runs:
       ENVIRONMENT=release
       EOF
       )
+      
+      # If we are not publishing,
+      # then we force an image export
+      # so we can still use the image.name
+      # see https://app.shortcut.com/chainlinklabs/story/33154/docker-image-name-missing-from-metadata  
+      if [ "$PUBLISH" = "false" ]; then
+        SHARED_OUTPUTS=$(
+          cat <<EOF
+        type=image,push=false
+      EOF
+        )
 
+      echo "shared-outputs<<EOF" >> $GITHUB_ENV
+      echo "$SHARED_OUTPUTS" >> $GITHUB_ENV
+      echo "EOF" >> $GITHUB_ENV
+      fi
+      
       echo "shared-images<<EOF" >> $GITHUB_ENV
       echo "$SHARED_IMAGES" >> $GITHUB_ENV
       echo "EOF" >> $GITHUB_ENV
@@ -115,12 +133,13 @@ runs:
 
   - name: Build and push root docker image
     id: buildpush-root
-    uses: docker/build-push-action@a66e35b9cbcf4ad0ea91ffcaf7bbad63ad9e0229 # v2.7.0
+    uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a # v2.10.0
     with:
       push: ${{ inputs.publish }}
       tags: ${{ steps.meta-root.outputs.tags }}
       labels: ${{ steps.meta-root.outputs.labels }}
       file: core/chainlink.Dockerfile
+      outputs: ${{ env.shared-outputs }}
       build-args: |
         CHAINLINK_USER=root
         ${{ env.shared-build-args }}
@@ -145,12 +164,13 @@ runs:
 
   - name: Build and push non-root docker image
     id: buildpush-nonroot
-    uses: docker/build-push-action@a66e35b9cbcf4ad0ea91ffcaf7bbad63ad9e0229 # v2.7.0
+    uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a # v2.10.0
     with:
       push: ${{ inputs.publish }}
       tags: ${{ steps.meta-nonroot.outputs.tags }}
       labels: ${{ steps.meta-nonroot.outputs.labels }}
       file: core/chainlink.Dockerfile
+      outputs: ${{ env.shared-outputs }}
       build-args: |
         CHAINLINK_USER=root
         ${{ env.shared-build-args }}
