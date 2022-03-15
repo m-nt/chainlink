@@ -172,7 +172,7 @@ runs:
       file: core/chainlink.Dockerfile
       outputs: ${{ env.shared-outputs }}
       build-args: |
-        CHAINLINK_USER=root
+        CHAINLINK_USER=chainlink
         ${{ env.shared-build-args }}
 
   - name: Save non-root image name in GITHUB_ENV
@@ -189,13 +189,14 @@ runs:
       PUBLISH: ${{ inputs.publish }}
     run: |
       echo "Fail build if non-root image runs as user: root"
+
+      # If we do not publish the image, we need to get it from the local filesystem.
       if [ "$PUBLISH" = "false" ]; then
         docker load --input /tmp/image.tar
       else
         docker pull "${nonroot_image_name}"
       fi
 
-      docker images
       docker inspect "${nonroot_image_name}" | jq -r '.[].Config.User' | ( ! grep "root" )
 
   # - if: inputs.sign-images == 'true'
