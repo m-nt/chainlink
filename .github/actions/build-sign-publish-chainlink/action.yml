@@ -83,7 +83,7 @@ runs:
       if [ "$PUBLISH" = "false" ]; then
         SHARED_OUTPUTS=$(
           cat <<EOF
-        type=image,push=false
+        type=docker,dest=/tmp/image.tar
       EOF
         )
 
@@ -185,9 +185,16 @@ runs:
   - name: Check if non-root image runs as root
     id: check-nonroot-runs-root
     shell: sh
+    env:
+      PUBLISH: ${{ inputs.publish }}
     run: |
       echo "Fail build if non-root image runs as user: root"
-      # Test
+      if [ "$PUBLISH" = "false" ]; then
+        docker load --input /tmp/image.tar
+      else
+        docker pull "${nonroot_image_name}"
+      fi
+
       docker images
       docker inspect "${nonroot_image_name}" | jq -r '.[].Config.User' | ( ! grep "root" )
 
